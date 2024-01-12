@@ -12,15 +12,16 @@ module.exports = async (req, res) => {
       },
       {
         headers: {
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` // Securely using environment variable
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
         }
       }
     );
 
     const name = response.data.choices[0].text.trim();
+    console.log('Name generated:', name); // Logging the generated name
     res.status(200).send({ name });
   } catch (error) {
-    console.error(error);
+    console.error('Error occurred:', error.message); // Logging the error message
     res.status(500).send({ error: 'An error occurred' });
   }
 };
