@@ -1,14 +1,14 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  const gptModel = "gpt-3.5-turbo"; // You can change the model here
+  const gptModel = "gpt-3.5-turbo"; // Specify the chat model here
 
   try {
     const response = await axios.post(
-      `https://api.openai.com/v1/engines/${gptModel}/completions`,
+      `https://api.openai.com/v1/chat/completions`, // Changed to chat completions endpoint
       {
-        prompt: "generate a random name and surname in only 2 words",
-        max_tokens: 10
+        model: gptModel, // Specify model here
+        messages: [{ "role": "system", "content": "generate a random name and surname in only 2 words" }],
       },
       {
         headers: {
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
       }
     );
 
-    const name = response.data.choices[0].text.trim();
+    const name = response.data.choices[0].message.content.trim();
     console.log('Name generated:', name); // Logging the generated name
     res.status(200).send({ name });
   } catch (error) {
