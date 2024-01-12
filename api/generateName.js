@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
       'https://api.openai.com/v1/engines/text-davinci-003/completions',
       {
         prompt: "generate a random name and surname in only 2 words",
-        max_tokens: 5
+        max_tokens: 10
       },
       {
         headers: {
