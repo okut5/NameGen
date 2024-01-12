@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Random Name</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Generate Random Name</h1>
+  <button id="generate">Generate Name</button>
+  <div id="response">
+    <input type="text" id="nameDisplay" readonly> <!-- Read-only input for the response -->
+  </div>
+
+<!-- Including Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Your Script -->
+<script>
+document.getElementById('generate').addEventListener('click', function() {
+  axios.get('/api/generateName')
+    .then(response => {
+      const name = response.data.name;
+      document.getElementById('nameDisplay').value = name;
+    })
+    .catch(error => console.error(error));
+});
+</script>
+
+</body>
+</html>
