@@ -20,8 +20,11 @@ module.exports = async (req, res) => {
     const name = response.data.choices[0].text.trim();
     console.log('Name generated:', name); // Logging the generated name
     res.status(200).send({ name });
-  } catch (error) {
-    console.error('Error occurred:', error.message); // Logging the error message
+} catch (error) {
+    console.error('Error occurred:', error.message);
+    if (error.response) {
+      console.error('Response:', error.response.data); // Log more response details
+    }
     res.status(500).send({ error: 'An error occurred' });
   }
 };
