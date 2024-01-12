@@ -13,6 +13,9 @@
   <div id="button">
     <button id="generate">Generate Name</button>
   </div>
+
+  <div id="loader" class="loader"></div>
+
   <div id="response">
     <input type="text" id="nameDisplay" readonly> <!-- Read-only input for the response -->
   </div>
@@ -22,6 +25,7 @@
 
 <!-- Your Script -->
 <script>
+   
 document.getElementById('generate').addEventListener('click', function() {
   axios.get('/api/generateName')
     .then(response => {
@@ -30,8 +34,34 @@ document.getElementById('generate').addEventListener('click', function() {
     })
     .catch(error => console.error(error));
 });
-</script>
-<!-- Addind new line just to push to Ve -->
+
+
+
+    function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+    }
+
+    function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+    }
+
+    async function generateName() {
+    showLoader();
+    try {
+        const response = await fetch('/api/generateName'); // Adjust this if your endpoint is different
+        const data = await response.json();
+        document.getElementById('nameDisplay').innerText = data.name;
+    } catch (error) {
+        console.error('Error:', error);
+        // Handle error
+    } finally {
+        hideLoader();
+    }
+}      
+
+
+    </script>
+<!--  -->
 
 </body>
 </html>
