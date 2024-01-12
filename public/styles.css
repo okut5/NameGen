@@ -1,0 +1,63 @@
+/* Overall background */
+body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text color */
+    font-family: Arial, sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Centering the content */
+h1, #response, #generate {
+    text-align: center;
+    margin: 10px 0; /* Spacing around elements */
+}
+
+/* Styling the heading */
+h1 {
+    font-size: 2.5em; /* Large font size */
+    margin-bottom: 20px;
+}
+
+/* Styling the button */
+#generate {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#generate:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+/* Styling the input */
+#nameDisplay {
+    border: 2px solid #f0f0f0; /* Light border */
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%; /* Input width */
+    max-width: 300px; /* Maximum width */
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #nameDisplay {
+        width: 70%;
+    }
+}

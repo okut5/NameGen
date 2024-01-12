@@ -1,0 +1,30 @@
+{
+  "name": "namegen",
+  "version": "1.0.0",
+  "description": "App powered by chatGPT API that generates random names",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okut5/NameGen.git"
+  },
+  "keywords": [
+    "chatGPT",
+    "name",
+    "generator",
+    "namegenerator",
+    "generate",
+    "namegen"
+  ],
+  "author": "Ondřej Kutil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okut5/NameGen/issues"
+  },
+  "homepage": "https://github.com/okut5/NameGen#readme",
+  "dependencies": {
+    "axios": "^1.6.5"
+  }
+}
