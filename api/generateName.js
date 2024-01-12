@@ -5,7 +5,7 @@ const axios = require('axios');
 module.exports = async (req, res) => {
   try {
     const response = await axios.post(
-      'https://api.openai.com/v1/engines/text-davinci-003/completions',
+      'https://api.openai.com/v1/engines/text-davinci-004/completions',
       {
         prompt: "generate a random name and surname in only 2 words",
         max_tokens: 10

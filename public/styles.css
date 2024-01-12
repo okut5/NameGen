@@ -11,32 +11,39 @@ body {
     height: 100vh; /* Full height of the viewport */
 }
 
-/* Centering the content */
-h1, #response, #generate {
-    text-align: center;
-    margin: 10px 0; /* Spacing around elements */
+/* Centering the content vertically and horizontally */
+#maindiv {
+    position: absolute;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Take full width */
+    height: 100%; /* Take full height */
 }
 
 /* Styling the heading */
 h1 {
-    font-size: 2.5em; /* Large font size */
+    font-size: 3.5em; /* Large font size */
     margin-bottom: 20px;
+    text-align: center; /* Center text */
 }
 
 /* Styling the button */
 #generate {
-    background-color: #4CAF50; /* Green background */
+    background-color: #004080; /* Green background */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.4em;
     transition: background-color 0.3s;
+    margin-top: 20px; /* Spacing above the button */
 }
 
 #generate:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
+    background-color: #003366; /* Slightly darker green on hover */
 }
 
 /* Styling the input */
@@ -44,20 +51,26 @@ h1 {
     border: 2px solid #f0f0f0; /* Light border */
     border-radius: 5px;
     padding: 10px;
-    width: 50%; /* Input width */
+    width: 80%; /* Input width */
     max-width: 300px; /* Maximum width */
     background-color: transparent;
     color: white;
     text-align: center;
+    margin-top: 50px; /* Spacing above the input */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 600px) {
     h1 {
+        font-size: 2.5em;
+    }
+
+    #generate {
         font-size: 2em;
     }
 
+
     #nameDisplay {
-        width: 70%;
+        width: 80%;
     }
 }
