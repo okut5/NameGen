@@ -110,6 +110,14 @@ h1 {
     50% { transform: translateX(15px); } /* Increased shake distance to right */
   }
   
+  #response {
+    text-align: center; /* Center aligns content */
+  }
+  
+  #nameDisplay, #copyButton {
+    margin: 20px auto; /* Auto margins for horizontal centering */
+    display: block; /* Makes elements take the full width */
+  }
   
 
 /* Responsive design for smaller screens */
@@ -131,4 +139,14 @@ h1 {
         width: 55%;
         font-size: 1.5em;
     }
+
+    #response {
+        display: flex;
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center; /* Centers items horizontally in the flex container */
+      }
+    
+      #nameDisplay, #copyButton {
+        width: 80%; /* Adjust the width to fit smaller screens */
+      }
 }
