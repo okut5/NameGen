@@ -78,6 +78,40 @@ h1 {
     font-size: 1.3em;
 }
 
+  #copyButton {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 14px 15px; /* Padding for size */
+    text-align: center; /* Center text */
+    padding-bottom: 12px;
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline display */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin for spacing */
+    cursor: pointer; /* Cursor as pointer */
+    border-radius: 5px; /* Square shape */
+    width: 100px; /* Fixed width */
+    overflow: hidden; /* Prevents content from spilling out */
+    white-space: nowrap; /* Prevents text wrapping */
+    text-overflow: ellipsis; /* Adds an ellipsis if th */
+  }
+  
+  #copyButton:hover {
+    background-color: #45a049; /* Slightly different green on hover */
+  }
+  
+  #copyButton:active {
+    animation: shake 0.5s;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%, 75% { transform: translateX(-15px); } /* Increased shake distance to left */
+    50% { transform: translateX(15px); } /* Increased shake distance to right */
+  }
+  
+  
+
 /* Responsive design for smaller screens */
 @media (max-width: 700px) {
     body{
