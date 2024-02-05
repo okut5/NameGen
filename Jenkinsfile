@@ -9,8 +9,8 @@ pipeline {
 
     stage('Debug Workspace') {
       steps {
-        sh 'pwd'
-        sh 'ls -lah e2e'
+        sh 'ls -lah'
+        sh 'find . -type d -name "Cypress"' // This will help to find if the directory exists anywhere in the workspace
       }
     }
 
