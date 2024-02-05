@@ -15,7 +15,7 @@ pipeline {
                 }
             }
 steps {
-                sh 'cypress run' // Runs Cypress tests
+                sh 'cypress run --browser chrome' // Runs Cypress tests
             }
         }
     }
