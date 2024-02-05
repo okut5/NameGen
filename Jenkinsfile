@@ -7,5 +7,16 @@ pipeline {
       }
     }
 
-  }
+     stage('Run Cypress Tests') {
+            agent {
+                docker {
+                    image 'cypress/included:latest'
+                    args '-v ${WORKSPACE}:/e2e -w /e2e' // Mounts the Jenkins workspace
+                }
+            }
+steps {
+                sh 'cypress run' // Runs Cypress tests
+            }
+        }
+    }
 }
