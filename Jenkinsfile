@@ -9,8 +9,9 @@ pipeline {
 
     stage('Debug Workspace') {
       steps {
+        sh 'pwd'
         sh 'ls -lah'
-        sh 'find . -type d -name "Cypress"' // This will help to find if the directory exists anywhere in the workspace
+        sh 'ls -lah cypress' // This will list contents of the 'cypress' directory
       }
     }
 
