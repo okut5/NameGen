@@ -11,7 +11,7 @@ pipeline {
             agent {
                 docker {
                     image 'cypress/included:latest'
-                    args '-v $PWD:/e2e -w /e2e -e "HOME=/tmp" -e "FONTCONFIG_PATH=/tmp/fonts"' // Mounts the Jenkins workspace
+                    args '-v $PWD/Cypress/e2e:/e2e -w /e2e -e "HOME=/tmp" -e "FONTCONFIG_PATH=/tmp/fonts"' // Mounts the Jenkins workspace
                 }
             }
 steps {
