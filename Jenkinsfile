@@ -11,11 +11,11 @@ pipeline {
             agent {
                 docker {
                     image 'cypress/included:latest'
-                    args '-v $PWD/Cypress/e2e:/e2e -w /e2e -e "HOME=/tmp" -e "FONTCONFIG_PATH=/tmp/fonts"' // Mounts the Jenkins workspace
+                    args '-v $PWD/Cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
                 }
             }
 steps {
-                sh 'cypress run --browser chrome' // Runs Cypress tests
+                sh 'cypress run' // Runs Cypress tests
             }
         }
     }
