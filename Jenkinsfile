@@ -19,7 +19,7 @@ pipeline {
       agent {
         docker {
           image 'cypress/included:latest'
-          args '-v $PWD/Cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
+          args '-v $PWD/cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
         }
       }
       steps {
