@@ -10,7 +10,7 @@ pipeline {
     stage('Debug Workspace') {
       steps {
         sh 'pwd'
-        sh 'ls -lah Cypress/e2e'
+        sh 'ls -lah e2e'
       }
     }
 
