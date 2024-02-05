@@ -1,31 +1,30 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout code') {
-      steps {
-        git(url: 'https://github.com/okut5/NameGen', branch: 'master')
-      }
-    }
+    agent any
 
-    stage('Debug Workspace') {
-      steps {
-        sh 'pwd'
-        sh 'ls -lah'
-        sh 'ls -lah cypress' // This will list contents of the 'cypress' directory
-      }
-    }
-
-    stage('Run Cypress Tests') {
-      agent {
-        docker {
-          image 'cypress/included:latest'
-          args '-v $PWD/cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
+    stages {
+        stage('Checkout code') {
+            steps {
+                git(url: 'https://github.com/okut5/NameGen', branch: 'master')
+            }
         }
-      }
-      steps {
-        // Ensures Cypress runs with the correct configuration and workspace
-        sh 'cypress run --browser chrome'
-      }
+
+        stage('Debug Workspace') {
+            steps {
+                script {
+                    sh 'pwd'
+                    sh 'ls -lah'
+                    sh 'ls -lah cypress' // Lists contents of the 'cypress' directory
+                }
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                script {
+                    // Running Docker command directly
+                    sh "docker run -v ${WORKSPACE}/cypress:/cypress -w /cypress cypress/included:latest"
+                }
+            }
+        }
     }
-  }
 }
