@@ -11,7 +11,7 @@ pipeline {
             agent {
                 docker {
                     image 'cypress/included:latest'
-                    args '-v ${WORKSPACE}:cypress/e2e -w cypress/e2e' // Mounts the Jenkins workspace
+                    args '-v ${WORKSPACE}/e2e:/e2e -w /e2e -e "HOME=/tmp"' // Mounts the Jenkins workspace
                 }
             }
 steps {
