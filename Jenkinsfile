@@ -7,18 +7,24 @@ pipeline {
       }
     }
 
-     stage('Run Cypress Tests') {
-            agent {
-                docker {
-                    image 'cypress/included:latest'
-                    args '-v $PWD/Cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
-                }
-            }
-steps {
-                sh 'cypress run --browser chrome' // Runs Cypress tests
-            }
-        }
+    stage('Debug Workspace') {
+      steps {
+        sh 'pwd'
+        sh 'ls -lah Cypress/e2e'
+      }
     }
-}
 
-//just addidng something 
+    stage('Run Cypress Tests') {
+      agent {
+        docker {
+          image 'cypress/included:latest'
+          args '-v $PWD/Cypress/e2e:/e2e -w /e2e' // Mounts the Jenkins workspace
+        }
+      }
+      steps {
+        // Ensures Cypress runs with the correct configuration and workspace
+        sh 'cypress run --browser chrome'
+      }
+    }
+  }
+}
