@@ -24,6 +24,7 @@ pipeline {
                     // Running Docker command directly
                     sh "docker run -v ${WORKSPACE}/cypress:/cypress -w /cypress cypress/included:latest"
                 }
+                }
             }
         }
     }
